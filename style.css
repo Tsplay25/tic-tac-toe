@@ -1,9 +1,3 @@
-/*
-#378dfe blue 
-#ff1138 red
-#1d1f2c background
-*/
-
 *{
     margin: 0;
     font-family: 'Audiowide', sans-serif;
@@ -32,13 +26,15 @@ label {
 }
 
 #player1,
-#tag-player1
+#tag-player1,
+.red
  {
     color: #ff1138;
 }
 
 #player2,
-#tag-player2
+#tag-player2,
+.blue
 {
     color: #378dfe;
 }
