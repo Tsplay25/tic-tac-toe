@@ -29,16 +29,19 @@ document.getElementById("set-player2").addEventListener("click", function (ev) {
 function playerMove(button_ID) {
     const actualPlayer = document.getElementById("turn-player");
     const actualButton = document.getElementById(button_ID);
+    const description = document.querySelector(".turn-description")
     let player = actualPlayer.innerText;
 
     if (player === "1") {
         actualButton.innerText = "X";
         actualPlayer.innerText = "2";
         actualButton.className += " red"
+        description.className = "turn-description blue";
     } else {
         actualButton.innerText = "O";
         actualPlayer.innerText = "1";
         actualButton.className += " blue";
+        description.className = "turn-description red";
     }
     actualButton.setAttribute("disabled", "true");
 

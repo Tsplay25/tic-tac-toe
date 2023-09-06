@@ -25,6 +25,13 @@ label {
     align-items: center;
 }
 
+.turn-description {
+    color: #ff1138;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 2rem;
+}
+
 #player1,
 #tag-player1,
 .red
@@ -82,6 +89,7 @@ main {
     text-align: center;
     padding: 1rem;
     color: #560bad;
+    text-decoration: underline;
 }
 
 .board {
@@ -102,11 +110,6 @@ main {
     font-size: 5rem;
 
     background-color: #4f5478;
-}
-
-#turn-description {
-    color: #ff1138;
-    text-align: center;
 }
 
 footer {
