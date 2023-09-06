@@ -31,11 +31,15 @@ label {
     align-items: center;
 }
 
-#player1 {
+#player1,
+#tag-player1
+ {
     color: #ff1138;
 }
 
-#player2 {
+#player2,
+#tag-player2
+{
     color: #378dfe;
 }
 
@@ -48,6 +52,10 @@ label {
     border-radius: 10px;
     padding-left: 5px;
     background-color: #4f5478;
+}
+
+.setPlayer input::placeholder {
+    color: #191a20;
 }
 
 button:hover {
