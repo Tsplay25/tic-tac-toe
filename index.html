@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo da Velha</title>
+</head>
+
+<body>
+    <header>
+        <div class="player" id="p1-block">
+            <img class="playerImage" src="./assets/p1.jpg" alt="Jogador 1">
+            <div class="setPlayer">
+                <label id="player1" for="nick1">Jogador 1:</label>
+                <input type="text" id="nick1" name="nick1">
+                <button>OK</button>
+            </div>
+        </div>
+        <div class="player" id="p2-block">
+            <img class="playerImage" src="./assets/p2.jpg" alt="Jogador 2">
+            <div class="setPlayer">
+                <label id="player2" for="nick2">Jogador 2:</label>
+                <input type="text" id="nick2" name="nick2">
+                <button>OK</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1 id="mainTitle">Jogo da velha</h1>
+        <section class="board">
+            <button class="playKey" id="btn-1">X</button>
+            <button class="playKey" id="btn-2"></button>
+            <button class="playKey" id="btn-3"></button>
+            <button class="playKey" id="btn-4">O</button>
+            <button class="playKey" id="btn-5"></button>
+            <button class="playKey" id="btn-6"></button>
+            <button class="playKey" id="btn-7"></button>
+            <button class="playKey" id="btn-8"></button>
+            <button class="playKey" id="btn-9"></button>
+        </section>
+        <p id="turn-description">Vez do jogador: <span id="turn-player">1</span></p>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
