@@ -118,3 +118,20 @@ main {
 footer {
     height: 10%;
 }
+
+footer p {
+    color: #fff;
+    text-align: center;
+}
+
+.icons-row {
+    display: flex;
+    justify-content: center;
+    margin: .3rem auto;
+
+}
+
+.icon {
+    width: 2.5rem;
+    padding: 0 1.5rem;
+}
