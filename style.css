@@ -111,6 +111,9 @@ main {
 
     background-color: #4f5478;
 }
+.winner {
+    background-color: greenyellow;
+}
 
 footer {
     height: 10%;

@@ -29,13 +29,13 @@ document.getElementById("set-player2").addEventListener("click", function (ev) {
 function playerMove(button_ID) {
     const actualPlayer = document.getElementById("turn-player");
     const actualButton = document.getElementById(button_ID);
-    const description = document.querySelector(".turn-description")
+    const description = document.querySelector(".turn-description");
     let player = actualPlayer.innerText;
 
     if (player === "1") {
         actualButton.innerText = "X";
         actualPlayer.innerText = "2";
-        actualButton.className += " red"
+        actualButton.className += " red";
         description.className = "turn-description blue";
     } else {
         actualButton.innerText = "O";
@@ -45,6 +45,9 @@ function playerMove(button_ID) {
     }
     actualButton.setAttribute("disabled", "true");
 
+    setTimeout(function () {
+        winner();
+    }, 100);
 }
 
 const buttons = document.getElementsByClassName("playKey");
@@ -56,4 +59,72 @@ for (let i = 0; i < buttons.length; i++) {
         ev.preventDefault();
         playerMove(id);
     });
+}
+
+function winner() {
+    const actualPlayer = document.getElementById("turn-player");
+    player = actualPlayer.innerText === "1" ? "2" : "1";
+    const gameWinner = document.getElementById("tag-player" + player).innerText;
+    let flag = false;
+    let cont =0, draw = false;
+
+    const victory = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8], 
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8], 
+        [0, 4, 8],
+        [2, 4, 6], 
+    ];
+    let actualGame = [];
+
+    for (let i = 0; i < buttons.length; i++){
+        actualGame.push(buttons[i].innerText);
+        if(actualGame[i] !== "") cont++;
+    }
+
+    if(cont===9) {
+        setTimeout(function () {
+            const restart = confirm("Houve um empate!");
+            if(restart) resetBoard();
+            return;
+        }, 100)
+    }
+    
+
+    for (const comb of victory) {
+        const [a, b, c] = comb;
+        if ((actualGame[a] === "X" && actualGame[b] === "X" && actualGame[c] === "X") ||
+            (actualGame[a] === "O" && actualGame[b] === "O" && actualGame[c] === "O")) {
+                buttons[a].className += " winner";
+                buttons[b].className += " winner";
+                buttons[c].className += " winner";
+                flag = true;
+                break;
+        }
+    }
+    if (flag) {
+        setTimeout(function () {
+            const restart = confirm(
+                "Jogador(a) " + gameWinner + " ganhou! Deseja reiniciar?"
+                );
+            if(restart) resetBoard();
+        }, 100)
+    }
+}
+
+function resetBoard() {
+    const buttons = document.getElementsByClassName("playKey");
+    const actualPlayer = document.getElementById("turn-player");
+    const description = document.querySelector(".turn-description");
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].innerText = "";
+        buttons[i].removeAttribute("disabled");
+        actualPlayer.innerText = "1";
+        buttons[i].className = "playKey";
+        description.className = "turn-description red";
+    }
 }
